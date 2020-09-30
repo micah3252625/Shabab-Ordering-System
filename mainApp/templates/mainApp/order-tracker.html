@@ -1,0 +1,64 @@
+{% extends 'mainApp/base.html' %}
+{% block content %}
+  
+    <section class="container">
+        <div class="search-bar d-flex justify-content-between align-items-center">
+            <div class="navbar-brand"><h2>ORDER TRACKER</h2></div>
+            <form class="form-inline d-flex justify-content-center md-form form-sm active-pink-2 mt-2">
+            <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+                aria-label="Search">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            </form>
+        </div>
+        
+        <div class="mt-5 mb-5 main text-center py-5">
+            <div class="main-tracker d-flex justify-content-center align-items-center align-items-center">
+                <div class="icon">
+                    <img src="{{ STATIC_URL }}/../static/MainApp/assets/img/confirm.png" alt="">
+                    <div class="icon-label">
+                        ORDER SUBMITTED
+                    </div>
+                </div>
+                <div class="arrow">
+                    <img src="{{ STATIC_URL }}/../static/MainApp/assets/img/right-arrow.png" alt="">
+                </div>
+                <div class="icon">
+                    <img src="{{ STATIC_URL }}/../static/MainApp/assets/img/process.png" alt="">
+                    <div class="icon-label">
+                        ORDER PROCESSING
+                    </div>
+                </div>
+                <div class="arrow">
+                    <img src="{{ STATIC_URL }}/../static/MainApp/assets/img/right-arrow.png" alt="">
+                </div>
+                <div class="icon">
+                    <img src="{{ STATIC_URL }}/../static/MainApp/assets/img/pizza-box.png" alt="">
+                    <div class="icon-label">
+                        ORDER PREPARING
+                    </div>
+                </div>
+                <div class="arrow">
+                    <img src="{{ STATIC_URL }}/../static/MainApp/assets/img/right-arrow.png" alt="">
+                </div>
+                <div class="icon">
+                    <img src="{{ STATIC_URL }}/../static/MainApp/assets/img/food-delivery.png" alt="">
+                    <div class="icon-label">
+                        ORDER ON ITS WAY
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- IF NO ORDER YET-->
+        <div class="mt-5 main text-center d-none">
+            <div class="image">
+                <img src="{{ STATIC_URL }}/../static/MainApp/assets/img/empty.png" alt="" width="300">
+            </div>
+            <div class="text-description mt-4 ">
+                <h1>No order yet</h1>
+            </div>
+            <div class="back-home mt-2">
+                <a href="{% url 'index' %} "><button class="btn" style="font-size: 20pt; background-color:  #8B0C0C; color: #fff; border-radius: 50px;">Back to Home</button></a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

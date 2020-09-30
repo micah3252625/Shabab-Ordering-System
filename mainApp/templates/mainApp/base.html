@@ -1,0 +1,255 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Shabab's Pizza Deliverys</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="{{ STATIC_URL }}/../static/mainApp/css/bootstrap.min.css">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="{{ STATIC_URL }}/../static/mainApp/css/mdb.min.css">
+  <!-- Your custom styles (optional) -->
+  <link rel="stylesheet" href="{{ STATIC_URL }}/../static/mainApp/css/style.css">
+</head>
+<body>
+
+  <!-- Start your project here-->  
+  <!--Navbar -->
+  <nav class="nav-main mb-1 navbar navbar-expand-lg navbar-dark " style="background-color: #8B0C0C;">
+  <div class="logo navbar-brand">
+    <a href="{% url 'index' %}">
+      <img src="{{ STATIC_URL }}/../static/mainApp/assets/img/Shababs.png" alt="" width="150">
+    </a>
+  </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
+    aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+    <ul class="navbar-nav ml-auto" sty>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'index' %}">
+          <i class="fas fa-home"></i> Home
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'orderTracker' %}">
+          <i class="fas fa-map-marker-alt"></i> Order Tracker</a>
+      </li>
+      <li class="nav-item dropdown">
+
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user"></i> Profile </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+          <a class="dropdown-item" href="#" style="color: #fff;" id="acc">My account</a>
+          <a class="dropdown-item" href="{% url 'register' %}" style="color: #fff;">Register</a>
+        
+          <a class="dropdown-item" data-toggle="modal" data-backdrop='static' data-target="#modalLoginForm" style="color: #fff;">Log in</a>
+        </div>
+      </li>
+      </ul>
+    </div>
+  </nav>
+
+<!--/.Navbar -->
+
+{% block content %} {% endblock %}
+
+<footer class="footer page-footer font-small pt-4 mt-5" style="background-color: #8B0C0C;">
+
+    <div class="container text-center text-md-left">
+
+      <!-- Grid row -->
+      <div class="row">
+
+        <hr class="clearfix w-100 d-md-none">
+
+        <!-- Grid column -->
+        <div class="footer-1 col-md-2 col-lg-4 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+          <!-- Links -->
+          <h5 class="links font-weight-bold text-uppercase mb-4">Others</h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <p>
+                <a href="#!">ABOUT US</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="#!">PRIVACY AND POLICY</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="#!">TERMS & CONDiTION</a>
+              </p>
+            </li>
+
+          </ul>
+
+        </div>
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none">
+
+        <!-- Grid column -->
+        <div class="footer-2 col-md-4 col-lg-4 mx-auto my-md-4 my-0 mt-4 mb-1">
+
+          <!-- Contact details -->
+          <h5 class="font-weight-bold text-uppercase mb-4">Address</h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <p>
+                <i class="fas fa-home mr-3"></i>Aurora Village, Guiwan, Zamboang City, Philippines</p>
+            </li>
+            <li>
+              <p>
+                <i class="fas fa-envelope mr-3"></i> info@example.com</p>
+            </li>
+            <li>
+              <p>
+                <i class="fas fa-phone mr-3"></i> + 63 995 820 0176</p>
+            </li>
+        
+          </ul>
+
+        </div>
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none">
+
+        <!-- Grid column -->
+        <div class="footer-3 sm-links col-md-2 col-lg-4 text-center mx-auto my-4">
+
+          <!-- Social buttons -->
+          <h5 class="font-weight-bold text-uppercase mb-4">Follow Us</h5>
+
+       <!--Facebook-->
+        <a class="sm-links btn-floating btn-lg btn-fb" type="button" role="button" href="https://www.facebook.com/Shababs-Pizza-100693855045592">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <!--Google +-->
+        <a class="sm-links btn-floating btn-lg btn-gplus" type="button" role="button">
+          <i class="fab fa-google-plus-g"></i>
+        </a>
+        <!--Instagram-->
+        <a class="sm-links btn-floating btn-lg btn-ins" type="button" role="button" href="https://www.instagram.com/shababspizza/?hl=en">
+          <i class="fab fa-instagram"></i>
+        </a>
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright: EST | Ateneo de Zamboanga University
+    </div>
+    <!-- Copyright -->
+  </footer>
+<!-- End MAIN-->
+
+
+<div class="modal fade overflow-hidden" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Log in</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="" method="POST" id="login-form">
+        {% csrf_token %}
+        <div class="modal-body mx-3">
+          <div class="md-form mb-5">
+            <i class="fas fa-envelope prefix grey-text"></i>
+            <input type="email"  name="email-lg"  id="defaultForm-email" class="form-control validate">
+            <label data-error="wrong" data-success="right" for="defaultForm-email">Email</label>
+          </div>
+
+          <div class="md-form mb-4">
+            <i class="fas fa-lock prefix grey-text"></i>
+            <input type="password" name="password-lg" id="defaultForm-pass" class="form-control validate">
+            <label data-error="wrong" data-success="right" for="defaultForm-pass">Password</label>
+          </div>
+          <div class="text-right">
+            <p>Don't have an account? <a href="{% url 'register' %}">Sign Up</a></p>
+          </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="submit" class="btn btn-block" style="background-color:  #8B0C0C; color:#fff; font-size: 16pt;">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>
+
+    
+  </script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+  <script type="text/javascript"> window.jQuery || document.write('<script src="{{ STATIC_URL }}/../static/mainApp/js/jquery.min.js"><\/script>');</script>
+
+  <!-- Bootstrap tooltips -->
+  
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{{ STATIC_URL }}/../static/mainApp/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{{ STATIC_URL }}/../static/mainApp/js/mdb.min.js"></script>
+  <!-- Your custom scripts (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script type="text/javascript">
+    const loginform = document.getElementById('login-form');
+    loginform.addEventListener("submit", submitHandler);
+
+      function submitHandler(e){
+          e.preventDefault();
+          $.ajax({
+          type      : 'POST',
+          data      : $("#login-form").serialize(),
+          url       : '{% url "index" %}',
+          dataType  : 'json',
+          success   : function (response){
+            if (response.msg === "Success"){
+              $('#modalLoginForm').modal('hide')
+              Swal.fire(
+                'Log in Successfully!',
+                '',
+                'success'
+              )
+              loginform.reset();
+            }
+            else {
+              Swal.fire(
+                'Invalid User!',
+                'Invalid password or username',
+                'error'
+              )
+            }
+          },
+          header    : {'X-CSRFToken': '{% csrf_token %}'}
+      });
+    }
+
+  </script>
+  <script type="text/javascript" src="{{ STATIC_URL }}/../static/mainApp/assets/js/script.js"></script>
+ 
+  
+</body>
+</html>

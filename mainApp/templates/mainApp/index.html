@@ -1,0 +1,389 @@
+
+{% extends 'mainApp/base.html' %}
+{% block content %}
+{% load static %}
+  <!-- MAIN -->
+
+
+  <button class="btn position-fixed py-4 px-4" data-toggle="modal" data-target="#cart" style="background-image: linear-gradient(to bottom, #740101, #610006, #4e0107, #3b0305, #2a0000); border-radius:100%; bottom: 20px; right: 20px;">
+    <i class="fas fa-shopping-cart text-center" style="z-index: 999; font-size: 20pt; color: white; text-shadow: 0px 3px 2px rgba(37, 37, 37, 1);"></i>
+  </button>
+  <section class="container">
+    <!-- search -->
+    <div class="search-bar d-flex justify-content-between align-items-center">
+      <div class="navbar-brand"><h2>EXPLORE MENU</h2></div>
+      <form class="form-inline d-flex justify-content-center md-form form-sm active-pink-2 mt-2">
+        <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+          aria-label="Search">
+        <i class="fas fa-search" aria-hidden="true"></i>
+      </form>
+    </div>
+    <!-- end search-->
+
+    <!--Carousel Wrapper-->
+    <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+      <!--Indicators-->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-2" data-slide-to="1"></li>
+        <li data-target="#carousel-example-2" data-slide-to="2"></li>
+      </ol>
+      <!--/.Indicators-->
+      <!--Slides-->
+      <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+          <div class="view">
+            <img class="d-block w-100" src="{{ STATIC_URL }}/../static/mainApp/assets/img/banner.jpg"
+              alt="First slide" width="1512" height="450">
+            <div class="mask rgba-black-light"></div>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="h3-responsive">Light mask</h3>
+            <p>First text</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <!--Mask color-->
+          <div class="view">
+            <img class="d-block w-100" src="{{ STATIC_URL }}/../static/mainApp/assets/img/ss1 (1).png"
+              alt="Second slide" width="1512" height="450">
+            <div class="mask rgba-black-strong"></div>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="h3-responsive">Strong mask</h3>
+            <p>Secondary text</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <!--Mask color-->
+          <div class="view">
+            <img class="d-block w-100" src="{{ STATIC_URL }}/../static/mainApp/assets/img/ss1 (2).jpg"
+              alt="Third slide" width="1512" height="450">
+            <div class="mask rgba-black-slight"></div>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="h3-responsive">Slight mask</h3>
+            <p>Third text</p>
+          </div>
+        </div>
+      </div>
+      <!--/.Slides-->
+      <!--Controls-->
+      <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+      <!--/.Controls-->
+    </div>
+    <!--/.Carousel Wrapper-->
+
+
+    <div class="menu ">
+      <!-- Classic tabs -->
+      <nav class="">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-promo" role="tab"
+            aria-controls="nav-home" aria-selected="true">PROMO</a>
+          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-bestsellers" role="tab"
+            aria-controls="nav-profile" aria-selected="false">BEST-SELLERS</a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-all" role="tab"
+            aria-controls="nav-contact" aria-selected="false">ALL</a>
+        </div>
+      </nav>
+
+      <div class="tab-content" id="nav-tabContent">
+    
+        <!--PROMO-->
+        <div class="tab-pane fade active show" id="nav-promo" role="tabpanel" aria-labelledby="nav-profile-tab" >
+          <div class="container" id="menu-1">
+            <div class="row align-items-center ">
+              {% for promo in promos %}
+              <div class="col-md-6 col-lg-6 text-center mb-5 justify-content-center">
+               <!-- Card -->
+              <div class="card">
+                <!-- Card image -->
+                <div class="view overlay">
+                  <img class="card-img-top" src="{{ promo.image.url }}"
+                    alt="Card image cap">
+                  <a href="#!">
+                    <div class="mask rgba-white-slight"></div>
+                  </a>
+                </div>
+
+                <!-- Card content -->
+                <div class="card-body">
+                  <!-- Title -->
+                  <h4 class="card-title">{{ promo.promo_name }} </h4>
+                  <h5 class="card-title">₱ {{ promo.price }} </h5>
+                  <!-- Button -->
+                  
+                  <div class="item-button">
+                    <button type="submit" class="btn"  data-toggle="modal" data-target="#bag"   style="background-color: #F9CE95; font-size: 16pt;">
+                      <i class="fas fa-cart-plus"></i> ORDER NOW
+                    </button>
+                  </div>
+                </div>
+              </div>
+          
+              <!-- Card -->
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <!-- ALL -->
+        <div class="tab-pane fade " id="nav-all" role="tabpanel" aria-labelledby="nav-home-tab" >
+          <div class="container" id="menu-3">
+            <div class="row align-items-center mt-5">
+              
+                
+              </form>
+              {% for pizza in pizzas %}
+              <div class="col-lg-4 text-center mb-5">
+                  <div class="image">
+                    <img src="{{ pizza.image.url }}" alt="" width="200">
+                  </div>
+
+                  <div class="item-title mt-3 mb-3" >
+                    <h3 id="name">{{ pizza.name }} </h3>
+                  </div>
+                  <div class="item-content">
+                    <div class="mb-2 d-flex justify-content-around align-items-center">    
+                      <h4 class="price-box mb-2" >₱ <span>{{ pizza.base_price }}</span></h4>          
+                    </div>
+                
+                    <div class="item-button">
+                      <button type="submit" id="order-now-btn" onclick='
+                          document.getElementById("pizza-name").innerHTML = "{{ pizza.name }}";    
+                          document.getElementById("price").value = "{{ pizza.base_price }}";
+                      ' class="btn"  data-toggle="modal" data-target="#bag"   style="background-color: #F9CE95; font-size: 16pt;">
+                        <i class="fas fa-cart-plus"></i> ORDER NOW</button>
+                    </div>
+                  </div>
+               
+              </div>
+               <!--BAG MODAL-->
+              <div class="modal fade overflow-hidden" id="bag" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+              aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="image">
+                        <img src="" alt="" width="200">
+                      </div>
+            
+                    <!--  <form action="" id="order-form">-->
+                        <!-- {% csrf_token %}-->
+                        <div class="d-flex justify-content-between align-items-center px-5">
+                          <div class="pizzza-name">
+                            <h5 id="pizza-name"></h5>
+                          </div>
+                          <div class="pizzza-price">
+                            <h5>₱ 
+
+                              <input class="quantity" id="price" name="price" disabled>
+                            </h5>
+                          </div>
+                        </div>
+                        
+                        <div class="container mt-3 px-4 d-flex justify-content-between align-items-center">
+                          <div class="pizza-qty d-flex justify-content-start align-items-center mb-3">
+                            <h5 class="mr-2">QTY: </h5> 
+                            <div class="qty-btn">
+                              <div class="def-number-input number-input safari_only">
+                                <button onclick="minus('{{pizza.id}}')" class="plus-minus minus" id="minus-{{pizza.id}}"></button>
+                                <input class="quantity" id="qty-{{pizza.id}}" min="1" name="qty" value="1" type="number" disabled>
+                                <button onclick="plus('{{pizza.id}}')" class="plus-minus plus" id="plus-{{pizza.id}}" ></button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="size-choice d-flex justify-content-center align-items-center mb-3">
+                            <h5 class="mr-2">SIZE: {{ form.size }}</h5> 
+                          </div>
+                        </div>
+                      
+              
+                  
+                        <div class="modal-footer">
+                          <button type="submit" class="btn"  style="background-color: #8B0C0C; font-size: 16pt; color: #fff;" data-toggle="modal" data-target="#bag-prompt" >Add order</button>
+                        </div>
+                  <!--   </form>-->
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>   
+              {% endfor %}
+             
+            </div>
+         
+          </div>
+        </div>
+
+        <!--BEST SELLER-->
+        <div class="tab-pane fade " id="nav-bestsellers" role="tabpanel" aria-labelledby="nav-home-tab">
+          <div class="container" id="menu-3">
+            <div class="row align-items-center mt-5">
+             
+              <div class="col-md-6 col-lg-4 text-center mb-5">
+              
+              </div>
+          
+  
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+     
+      <!-- CART MODAL-->
+      <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <!--Header-->
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">ORDER SUMMARY</h4>
+          </div>
+          <!--Body-->
+          <div class="modal-body">
+  
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Product name</th>
+                  <th>Price</th>
+                  <th>Remove</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Product 1</td>
+                  <td>100$</td>
+                  <td><a><i class="fas fa-times"></i></a></td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Product 2</td>
+                  <td>100$</td>
+                  <td><a><i class="fas fa-times"></i></a></td>
+                </tr>
+              </tbody>
+            </table>
+  
+          </div>
+          <!--Footer-->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">CLOSE</button>
+            <button class="btn btn-primary">NEXT</button>
+          </div>
+        </div>
+      </div>
+      </div>
+    <!-- Modal: modalCart -->
+  
+    <!-- Button trigger modal -->
+  
+  
+    <!-- Modal -->
+    <div class="modal fade overflow-hidden" id="bag-prompt" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+    
+      <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+      <div class="modal-dialog modal-dialog-centered role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+        
+          </div>
+          <div class="modal-footer inline-block">
+            <button style="background-color: #F9CE95; font-size: 16pt;" type="button" class="btn btn-block mb-3" data-dismiss="modal">ADD MORE PIZZA</button>
+            <button style="background-color: #8B0C0C; font-size: 16pt; color: #fff;" type="button" class="btn btn-block" data-toggle="modal" data-target="#cart" data-dismiss="modal">PROCEED TO CHECKOUT</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- log in modal-->
+    
+   
+  </section>
+  
+
+
+<!-- Modal: modalCart -->
+{% endblock %}
+
+
+
+<!-- 
+  <div class="modal fade overflow-hidden" id="bag" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal 
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="image">
+                <img src="" alt="" width="200">
+              </div>
+      
+              <form action="" id="order-form">
+                {% csrf_token %}
+                <div class="d-flex justify-content-between align-items-center px-5">
+                  <div class="pizzza-name">
+                    <h5 id="pizza-name"></h5>
+                  </div>
+                  <div class="pizzza-price">
+                    <h5 id="pizza-price"></h5>
+                  </div>
+                </div>
+                
+                <div class="container mt-3 px-4 d-flex justify-content-between align-items-center">
+                  <div class="pizza-qty d-flex justify-content-start align-items-center mb-3">
+                    <h5 class="mr-2">QTY: </h5> 
+                    <div class="def-number-input number-input">
+                      <button onclick="" class="dec" ></button>
+                      <input class="quantity" min="0" name="quantity" value="1" type="number">
+                      <button onclick="" class="inc"></button>
+                    </div>
+                  </div>
+                  <div class="size-choice d-flex justify-content-center align-items-center mb-3">
+                    <h5 class="mr-2">SIZE: </h5> 
+                  </div>
+                </div>
+               
+      
+          
+                <div class="modal-footer">
+                  <button type="submit" class="btn"  style="background-color: #8B0C0C; font-size: 16pt; color: #fff;" data-toggle="modal" data-target="#bag-prompt" >Add order</button>
+                </div>
+              </form>
+               
+            </div>
+          </div>
+      </div>
+      </div>
+-->

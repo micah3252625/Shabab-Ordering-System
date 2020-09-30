@@ -1,0 +1,189 @@
+
+{% extends 'mainApp/base.html' %}
+{% block content %}
+
+    <section class="container">
+         <!-- search -->
+        <div class="search-bar d-flex justify-content-between align-items-center">
+            <div class="navbar-brand"><h2>REGISTER</h2></div>
+            <form class="form-inline d-flex justify-content-center md-form form-sm active-pink-2 mt-2">
+            <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+                aria-label="Search">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            </form>
+        </div>
+      <!-- end search-->
+        
+         <!-- Default form register -->
+        <form class="register p-3"  method="POST" id="form" action="">
+            {% csrf_token %}
+            <div class="form-content" >
+                <!-- search bar-->
+                <div class="d-flex align-items-center">
+                    <div class="register-logo mr-4">
+                        <img src="{{ STATIC_URL }}/../static/MainApp/assets/img/pizza-gif.gif" alt="" width="200">
+                    </div>
+                    <div class="header-info">
+                       <h1 style="color: #8B0C0C;">LOVIN IT?</h1>
+                       <h3>SIGN UP FOR SHABAB'S ACCOUNT!</h3>
+                       <p style="font-family: Roboto; font-weight: 500;">You'll love our exclusive updates, promos and even more! <br>Enjoy all the perks with your own Shabab's Account!</p>
+                    </div>
+                </div>
+                <!-- end search bar-->
+                <hr>
+                <!-- Grid row -->
+                <div class="register-wrapper d-flex row no-gutters">
+                    <div class="col-8 register-content">
+                        <div class="person-details mb-2">
+                            <h3 class="ml-3">Personal Information</h3>
+                            <div class="row px-3 py-1">
+                                <!-- Grid column -->                  
+                                <div class="col-2 mb-2">
+                                    {{ form.salutation }}
+                                    <!--
+                                    <select class="browser-default custom-select px-3" style="font-size: 14pt;">
+                                        <option value="1" selected>Mr</option>
+                                        <option value="2">Ms</option>
+                                        <option value="3">Mrs</option>
+                                    </select>-->
+                                </div>
+                                <!-- Grid column -->
+                                <div class="col-5">
+                                    {{ form.first_name }}
+                                <!-- Default input
+                                    <input type="text" class="form-control px-3" placeholder="First name"  style="font-size: 14pt;">
+                                     -->
+                                </div>
+                                <!-- Grid column -->
+        
+                                <!-- Grid column -->
+                                <div class="col-5">
+                                    {{ form.last_name }}
+                                <!-- Default input 
+                                    <input type="text" class="form-control px-3" placeholder="Last name"  style="font-size: 14pt;">
+                                    -->
+                                </div>
+                                <!-- Grid column -->
+                            </div>
+                        </div>
+                        <!-- Grid row -->
+                        <div class="location-details mb-2">
+                            <h3 class="ml-3">Location</h3>
+                            <div class="row px-3 py-1">
+                                <!--
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Floor/Dept/House No."  style="font-size: 16pt;">
+                                    </div>
+                                </div>
+                                -->
+                                <div class="col-7">
+                                    <div class="form-group">
+                                        {{ form.street }}
+                                        <!--<input type="text" class="form-control px-3" id="formGroupExampleInput" placeholder="Street*"  style="font-size: 14pt;">-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row px-3 ">
+                                <div class="col-7">
+                                    <div class="form-group">
+                                        {{ form.barangay }}
+                                        <!--<input type="text" class="form-control px-3" id="formGroupExampleInput" placeholder="Village/Barangay"  style="font-size: 14pt;">-->
+                                    </div>
+                                </div>
+                                <!--
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Building"  style="font-size: 16pt;">
+                                    </div>
+                                </div>
+                                -->
+                            </div>
+                        </div>
+                       
+        
+                        <div class="contact-details mb-2">
+                            <h3 class="ml-3">Contact Details</h3>
+                            <div class="col-7">
+                                <div class="form-group">
+                                    {{ form.number }}
+                                    <!--<input type="text" class="form-control px-3" id="formGroupExampleInput" placeholder="Mobile Number*"  style="font-size: 14pt;">-->
+                                </div>
+                            </div>
+                        </div>
+        
+        
+                        <div class="email-details mb-2">
+                            <h3 class="ml-3">Email Address</h3>
+                            <div class="col-7">
+                                <div class="form-group">
+                                    {{ form.email }}
+                                    <!--<input type="email" class="form-control px-3" id="formGroupExampleInput" placeholder="Email Address*"  style="font-size: 14pt;" >-->
+                                </div>
+                            </div>
+                        </div>
+        
+        
+                        <div class="password-details mb-2">
+                            <h3 class="ml-3">Password</h3>
+                            <div class="row px-3">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        {{ form.password }}
+                                        <!--<input type="password" class="form-control px-3" id="formGroupExampleInput" placeholder="Password*"  style="font-size: 14pt;">-->
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        {{ form.confirm_password }}
+                                        <!--input type="password" class="form-control px-3" id="formGroupExampleInput" placeholder="Re-enter Password"  style="font-size: 14pt;">-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+        
+                        <hr>
+        
+                        <div class="submit-btn mb-2 ml-2">
+                            <button type="submit" class="btn px-3 py-3" style="background-color: #8B0C0C; color: #fff; width: 70%; font-size: 18pt;">SUBMIT</button>
+                        </div>
+                    </div>
+                    <aside class="pizza-boi col-4" style="padding-left: 50px;">
+                        <img src="{{ STATIC_URL }}/../static/MainApp/assets/img/pizzaboi.png" alt="" style="width: 120%; max-width: 400px; display: block;">
+                    </aside>
+                </div>
+                
+                
+            </div>
+        </form>
+        <!-- Default form register -->
+    </section>
+    <!--
+    <script
+        src="https://code.jquery.com/jquery-3.5.0.min.js"
+        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+        crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        const form = document.getElementById('form');
+        form.addEventListener("submit", submitHandler);
+  
+        function submitHandler(e){
+          e.preventDefault();
+          $.ajax({
+            type      : 'POST',
+            url       : "{% url 'register' %}",
+            data      : $("#form").serialize(),
+            dataType  : 'json',
+            success   : successFunction
+          });
+          
+        }
+        function successFunction(data){
+          if (data.msg === "Success"){
+            alert("Form is Submitted");
+            form.reset();
+          }
+        }
+    </script>
+-->
+{% endblock %}
